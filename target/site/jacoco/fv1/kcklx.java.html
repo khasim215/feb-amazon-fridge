@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>kcklx.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report"></a> &gt; <a href="index.source.html" class="el_package">fv1</a> &gt; <span class="el_source">kcklx.java</span></div><h1>kcklx.java</h1><pre class="source lang-java linenums">package fv1;
+
+import gate.Annotation;
+import gate.AnnotationSet;
+import gate.Document;
+import gate.Resource;
+import gate.creole.AbstractLanguageAnalyser;
+import gate.creole.ExecutionException;
+import gate.creole.ExecutionInterruptedException;
+import gate.creole.ResourceInstantiationException;
+import gate.creole.metadata.*;
+
+import org.apache.log4j.Logger;
+
+@CreoleResource(
+    name = &quot;vdsv&quot;,
+    comment = &quot;(A short one-line description of this PR, suitable for a tooltip in the GUI)&quot;)
+<span class="fc" id="L18">public class kcklx extends AbstractLanguageAnalyser {</span>
+
+<span class="fc" id="L20">  private static final Logger log = Logger.getLogger(kcklx.class);</span>
+
+  /**
+   * Annotation set name from which this PR will take its input annotations.
+   */
+  private String inputASName;
+
+  /**
+   * Annotation set name into which this PR will create new annotations.
+   */
+  private String outputASName;
+
+
+  public String getInputASName() {
+<span class="nc" id="L34">    return inputASName;</span>
+  }
+
+  @Optional
+  @RunTime
+  @CreoleParameter(comment = &quot;The annotation set used for input annotations&quot;)
+  public void setInputASName(String inputASName) {
+<span class="nc" id="L41">    this.inputASName = inputASName;</span>
+<span class="nc" id="L42">  }</span>
+
+  public String getOutputASName() {
+<span class="nc" id="L45">    return outputASName;</span>
+  }
+
+  @Optional
+  @RunTime
+  @CreoleParameter(comment = &quot;The annotation set used for output annotations&quot;)
+  public void setOutputASName(String outputASName) {
+<span class="nc" id="L52">    this.outputASName = outputASName;</span>
+<span class="nc" id="L53">  }</span>
+
+  /**
+   * Initialize this vdsv.
+   * @return this resource.
+   * @throws ResourceInstantiationException if an error occurs during init.
+   */
+  public Resource init() throws ResourceInstantiationException {
+<span class="fc" id="L61">    log.debug(&quot;vdsv is initializing&quot;);</span>
+
+    // your initialization code here
+
+<span class="fc" id="L65">    return this;</span>
+  }
+
+  /**
+   * Execute this vdsv over the current document.
+   * @throws ExecutionException if an error occurs during processing.
+   */
+  public void execute() throws ExecutionException {
+    // check the interrupt flag before we start - in a long-running PR it is
+    // good practice to check this flag at appropriate key points in the
+    // execution, to allow the user to interrupt processing if it takes too
+    // long.
+<span class="nc bnc" id="L77" title="All 2 branches missed.">    if(isInterrupted()) {</span>
+<span class="nc" id="L78">      throw new ExecutionInterruptedException(&quot;Execution of vdsv has been interrupted!&quot;);</span>
+    }
+<span class="nc" id="L80">    interrupted = false;</span>
+
+<span class="nc" id="L82">    Document doc = getDocument();</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">    if(doc != null) {</span>
+<span class="nc" id="L84">      AnnotationSet inputAS = doc.getAnnotations(inputASName);</span>
+<span class="nc" id="L85">      AnnotationSet outputAS = doc.getAnnotations(outputASName);</span>
+
+      // do your processing here - take annotations from the inputAS and put
+      // results into the outputAS
+    }
+<span class="nc" id="L90">  }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CREOLE-DIRECTORY NAME="clothes-code" VERSION="fp1" GATE-MIN="9.0">
+  <!--this file is auto-generated, modifications will have no effect-->
+  <!-- plugins can require other plugins.
+	For example to require ANNIE you would include the following:
+	<REQUIRES GROUP="uk.ac.gate.plugins" ARTIFACT="annie" VERSION="9.0"/>
+	-->
+  <RESOURCE>
+    <CLASS>fv1.kcklx</CLASS>
+    <NAME>vdsv</NAME>
+    <COMMENT>(A short one-line description of this PR, suitable for a tooltip in the GUI)</COMMENT>
+    <PARAMETER NAME="inputASName" COMMENT="The annotation set used for input annotations" RUNTIME="true" OPTIONAL="true">java.lang.String</PARAMETER>
+    <PARAMETER NAME="outputASName" COMMENT="The annotation set used for output annotations" RUNTIME="true" OPTIONAL="true">java.lang.String</PARAMETER>
+    <PARAMETER NAME="document" COMMENT="The document to process" RUNTIME="true">gate.Document</PARAMETER>
+    <PARAMETER NAME="corpus" COMMENT="The corpus containing the document to process" RUNTIME="true" OPTIONAL="true">gate.Corpus</PARAMETER>
+  </RESOURCE>
+</CREOLE-DIRECTORY>
+

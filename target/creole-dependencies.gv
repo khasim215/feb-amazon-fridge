@@ -1,0 +1,5 @@
+digraph G {
+   // ensure we always include this plugin even if no dependencies
+   "amazon-clothes:clothes-code:fp1"
+
+}
